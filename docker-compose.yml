@@ -1,15 +1,12 @@
-version: '3.8'
-
 services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
     container_name: ticket-sales-app
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=file:./dev.db
+      - DATABASE_URL=file:/app/dev.db
       - JWT_SECRET=supersecretkey
     volumes:
       - ./dev.db:/app/dev.db
